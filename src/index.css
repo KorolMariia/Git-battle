@@ -144,3 +144,51 @@ li {
 .reset:hover {
   cursor: pointer;
 }
+
+.search-wrap {
+  padding: 20px;
+  display: flex;
+  position: relative;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #d0021b;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9dbfaf;
+}
+
+.searchTerm:focus {
+  color: black;
+}
+
+.searchButton {
+  width: 40px;
+  border: 1px solid #d0021b;
+  background:#d0021b;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#search-error{
+  position: absolute;
+  top: 0;
+  right: 30px;
+  color: rgb(255, 0, 0);
+  font-size: 12px;
+}
+
+.noRepo {
+display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}

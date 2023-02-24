@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import Popular from './Popular';
-import Battle from './Battle';
-import NotFound from './NotFound';
-import Nav from './Nav';
+import Home from './pages/Home/Home';
+import Popular from './pages/Popular';
+import Battle from './pages/Battle/Battle';
+import NotFound from './pages/NotFound/NotFound';
+import Nav from './Components/Nav';
 
 const App = () => (
   <BrowserRouter>
