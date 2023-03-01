@@ -6,6 +6,7 @@ const Loader = () => {
     <Stack
       sx={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}
       direction="row"
+      className="column"
     >
       <CircularProgress color="inherit" />
     </Stack>
