@@ -1,6 +1,6 @@
 # Git-battle ReactJS
 
-[Demo](https://githubapi-battle.netlify.app/)
+[Demo](https://git-battle-korol-mariia.vercel.app/)
 
 This app was created using the GitHub API to offer users fast and easy access to repositories.
 
