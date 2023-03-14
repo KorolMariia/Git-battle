@@ -16,7 +16,7 @@ const Repos = memo(({ repos }) => {
                 />
               </li>
               <li>
-                <a href={repo.html_url} trget="_blank">
+                <a href={repo.html_url} target="_blank" rel="noreferrer">
                   {repo.name}
                 </a>
               </li>

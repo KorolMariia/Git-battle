@@ -4,9 +4,12 @@ import CircularProgress from '@mui/material/CircularProgress';
 const Loader = () => {
   return (
     <Stack
-      sx={{ display: 'flex', justifyContent: 'center', alignContent: 'center' }}
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignContent: 'center',
+      }}
       direction="row"
-      className="column"
     >
       <CircularProgress color="inherit" />
     </Stack>

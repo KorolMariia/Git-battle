@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import InputPlayer from './InputPlayer';
 import PreviewPlayer from './PreviewPlayer';
 import Loader from '../../Components/Loader';
-import { getPlayer } from '../../api/api';
-import { initialStatePlayers } from '../../utils';
+import { getPlayer } from '../../utils/api';
+import { initialStatePlayers } from '../../utils/utils';
 
 const Battle = () => {
   const [loading, setLoading] = useState({ 1: false, 2: false });
@@ -15,24 +15,26 @@ const Battle = () => {
     2: { ...initialStatePlayers },
   });
 
-  const handleSubmit = (id, username) => {
-    setLoading((prevState) => ({ ...prevState, [id]: true }));
-    getPlayer(username)
-      .then(({ data }) =>
-        setPlayersData((prevState) => ({
-          ...prevState,
-          [id]: {
-            ...prevState[id],
-            username: username,
-            avatar: data.avatar_url,
-          },
-        })),
-      )
-      .catch((error) => setError(error.response.data.message))
-      .finally(
-        () => setLoading((prevState) => ({ ...prevState, [id]: false })),
-        setError(''),
-      );
+  const handleSubmit = async (id, username) => {
+    try {
+      setLoading((prevState) => ({ ...prevState, [id]: true }));
+      const data = await getPlayer(username);
+      setPlayersData((prevState) => ({
+        ...prevState,
+        [id]: {
+          ...prevState[id],
+          username: username,
+          avatar: data.avatar_url,
+        },
+      }));
+    } catch (error) {
+      setError(error.response.data.message);
+    } finally {
+      setLoading((prevState) => ({ ...prevState, [id]: false }));
+      if (error) {
+        setError('');
+      }
+    }
   };
 
   const handleReset = (id) => {
@@ -68,7 +70,14 @@ const Battle = () => {
   const showBattleButton = useMemo(() => {
     return (
       Object.values(playersData).every(({ avatar }) => avatar) && (
-        <Link to="/battle/results" className="button">
+        <Link
+          to={{
+            pathname: '/battle/results',
+            search: `?playerOne=${playersData[1].username}&playerTwo=${playersData[2].username}`,
+          }}
+          state={playersData}
+          className="button"
+        >
           Battle
         </Link>
       )
@@ -79,7 +88,7 @@ const Battle = () => {
     <>
       <section className="row">{showBattlePlayers()}</section>
       {showBattleButton}
-      {error && <div className="input-error">{error}</div>}
+      {error && <div className="error">{error}</div>}
     </>
   );
 };

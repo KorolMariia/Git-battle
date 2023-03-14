@@ -1,19 +1,15 @@
 # Git-battle ReactJS
 
-This project was bootstrapped with Create React App.
-
 [Demo](https://githubapi-battle.netlify.app/)
 
-Here, you can:
+This app was created using the GitHub API to offer users fast and easy access to repositories.
 
-- search github repositories by language and/or by name;
-- go to the repository page on github;
-- battle repositories by stars.
+- Users can filter repositories by programming language or through a search bar.
+- The app includes query parameters that enable saving previous searches even after refreshing the page.
+- Users can participate in "battles" between their friends or other repositories, comparing their popularity based on the number of followers or stars.
+- This functionality provides an effective way to gauge the popularity of repositories on GitHub.
 
-To start the app do (development):
-
-- _npm install_
-- _npm start_
+## This project was bootstrapped with Create React App.
 
 I used:
 
@@ -25,3 +21,19 @@ I used:
 - Axios
 - Material-UI
 - Netlify for Demo
+
+#### To start the app do (development):
+
+Firstly, you must add the file **.env** with your Github API access key.
+
+> Note: You can generate it in your Github => Settings => Developer Settings.
+
+You can see the file **.env-sample** - a sample of what it should look.
+
+```sh
+npm install
+```
+
+```sh
+npm start
+```

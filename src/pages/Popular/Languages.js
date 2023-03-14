@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { languages } from '../../utils';
+import { languages } from '../../utils/utils';
 
 const Languages = memo(({ urlLanguage, setSearchParams }) => {
   return (

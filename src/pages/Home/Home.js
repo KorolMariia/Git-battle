@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => (
   <div className="home-container">
-    <h1>GitHub Battle: Battle your friends... and stuff.</h1>
+    <h1 className="title">GitHub Battle: Battle your friends... and stuff.</h1>
     <Link to="/battle" className="button">
       Battle
     </Link>
